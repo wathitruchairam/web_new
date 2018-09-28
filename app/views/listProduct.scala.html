@@ -1,0 +1,52 @@
+@(productList:List[Product])
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                   <label> ข้อมูลรายการสินค้า </label>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <button type="button" class="btn btn-inverse-info " ><a href="/inputProduct">เพิ่มสินค้า</a> </button>
+                </div>
+            </div>
+        </div>
+            <!-- /.panel-heading -->
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>รหัสสินค้า</th>
+                            <th>ชื่อสินค้า</th>
+                            <th>รุ่น</th>
+                            <th>ประเภทสินค้า</th>
+                            <th>รายละเอียด</th>
+                            <th>จำนวน</th>
+                            <th>ราคา</th>
+                            <th>รูป</th>
+                        </tr>
+
+                        @for(pr <- productList){
+                            <tr>
+                                <td>@pr.getId()</td>
+                                <td>@pr.getName()</td>
+                                <td>@pr.getBrand()</td>
+                                <td>@pr.getTypes.getName()</td>
+                                <td>@pr.getDetail()</td>
+                                <td>@pr.getAmount()</td>
+                                <td>@pr.getPrice()</td>
+                                <td><img src="/assets/images/product/@pr.getPicture()" class="img-thumbnail" width="50px"></td>
+                                <td><a href="/editProduct/@pr.getId">แก้ไข</a> </td>
+                                <td><a href="/deleteProduct/@pr.getId" onclick="return confirm('โปรดยืนยันการลบ')">ลบ</a> </td>
+                            </tr>
+                        }
+                    </thead>
+
+                </table>
+            </div>
+                <!-- /.table-responsive -->
+        </div>
+            <!-- /.panel-body -->
+    </div>

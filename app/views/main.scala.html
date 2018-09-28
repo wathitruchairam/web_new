@@ -1,0 +1,32 @@
+@(content: Html)
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>web_new</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link type="text/css" rel="stylesheet" href="/assets/stylesheets/bootstrap/css/bootstrap.css">
+        <link type="text/css" rel="stylesheet" href="/assets/stylesheets/main.css">
+        <link type="text/css" rel="stylesheet" href="/assets/stylesheets/main_q.css">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+    </head>
+    <body>
+        <div class="container-fluid" id="phase">
+            <div class="row">
+                <img class="img-responsive" src="/assets/images/S4.jpg" alt="">
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    @menu()
+                </div>
+                <div class="col-md-9">
+                @content
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
