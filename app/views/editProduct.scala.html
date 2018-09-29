@@ -8,7 +8,7 @@
     </div>
 }
 
-@helper.form(action = routes.Application.updateProduct(), 'class->"from-control"){
+@helper.form(action = routes.AddProducts.updateProduct(), 'class->"from-control"){
     @inputText(myForm("id"),'_label ->"รหัสสินค้า", 'size-> "13", 'maxlength->"13", 'required->"requied",'readonly->"readonly")
     @inputText(myForm("name"),'_label ->"ชื่อสินค้า", 'size-> "50", 'maxlength->"40", 'required->"requied")
     @inputText(myForm("brand"),'_label ->"รุ่น", 'size-> "50")
