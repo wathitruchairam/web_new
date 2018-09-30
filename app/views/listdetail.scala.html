@@ -1,0 +1,66 @@
+@(products:Product)
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <div class="between">
+                        <h4> ข้อมูลรายละเอียดสินค้า </h4>
+
+                        <a class="btn btn-inverse-primary icon-btn" href="/listProduct"><i class="icofont icofont-reply"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <!-- /.panel-heading -->
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>รายการ</th>
+                            <th>รายละอียด</th>
+                        </tr>
+                    </thead>
+                        <tbody>
+                        <tr>
+                            <th>รหัสสินค้า</th>
+                            <td>@products.getId</td>
+                        </tr>
+                        <tr>
+                            <th>ชื่อสินค้า</th>
+                            <td>@products.getName()</td>
+                        </tr>
+                        <tr>
+                            <th>รุ่น</th>
+                            <td>@products.getBrand()</td>
+                        </tr>
+                        <tr>
+                            <th>ประเภทสินค้า</th>
+                            <td>@products.getTypes.getName()</td>
+                        </tr>
+                        <tr>
+                            <th>รายละเอียด</th>
+                            <td>@products.getDetail()</td>
+                        </tr>
+                        <tr>
+                            <th>จำนวน</th>
+                            <td>@products.getAmount()</td>
+                        </tr>
+                        <tr>
+                            <th>ราคา</th>
+                            <td>@products.getPrice()</td>
+                        </tr>
+                        <tr>
+                            <th>รูป</th>
+                            <td><img src="/assets/images/product/@products.getPicture()" class="img-thumbnail" width="50px"></td>
+                        </tr>
+                </tbody>
+
+                </table>
+            </div>
+                <!-- /.table-responsive -->
+        </div>
+            <!-- /.panel-body -->
+    </div>

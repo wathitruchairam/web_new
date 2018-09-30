@@ -13,7 +13,7 @@ GET     /editProduct/:id            controllers.AddProducts.editProduct(id:Strin
 POST    /updateProduct              controllers.AddProducts.updateProduct()
 GET     /deleteProduct/:id          controllers.AddProducts.deleteProduct(id:String)
 #End
-
+GET     /listdetail/:id             controllers.ShowProducts.listdetail(id:String)
 
 GET     /showProducts               controllers.ShowProducts.showPro()
 # Map static resources from the /public folder to the /assets URL path
