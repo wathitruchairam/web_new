@@ -1,8 +1,127 @@
 #phase{
      padding-bottom: 20px;
  }
+
+/*pagehome*/
+.it-title{
+    border-bottom: 1px solid #eee;
+    margin-bottom: 30px;
+}
+.it-title h3{
+    font-size: 20px;
+    font-weight: 300;
+}
+.it-title h3 span{
+    border-bottom: 3px solid #105a75;
+    padding: 0 0px 5px 0px;
+}
+.it-title a.viewall{
+    font-size: 14px;
+    float: right;
+    position: relative;
+    top: -30px;
+    color: #888888;
+    webkit-transition: 0.2s ease all;
+    opacity: 0.85;
+}
 .between{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.btn-inverse-primary {
+    background-color: #fff;
+    border-color: #2196F3;
+    color: #2196F3;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: all ease-in 0.3s;
+    -moz-transition: all ease-in 0.3s;
+    -ms-transition: all ease-in 0.3s;
+    transition: all ease-in 0.3s;
+}
+.btn-inverse-primary:hover {
+    border-color: #2196F3;
+    background-color: #2196F3;
+    color: #fff;
+}
+/*footer*/
+.py-5{
+    padding-bottom: 3rem!important;
+    font-size: 16px;
+}
+.py-5{
+    padding-top: 3rem!important;
+}
+.bg-dark{
+   background-color: #105a75;
+}
+.text-white{
+    color: #fff;
+}
+/*End*/
+
+/*Login*/
+.wrapper {
+    vertical-align:middle;
+    margin-top: 15%;
+    margin-bottom: 10%;
+}
+.form-signin {
+    max-width: 380px;
+    padding: 15px 15px 45px;
+    margin: 0 auto;
+    background-color: #fff;
+    /*border: 1px solid rgba(0, 0, 0, 0.1);*/
+}
+
+.form-signin-heading{
+    font-size: 27px;
+    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    padding-bottom: 10px;
+}
+.form-signin-heading>a{
+    text-decoration: none;
+    color: #565656;
+    font-weight: 100;
+}
+.text-normal{
+    font-weight: 400;
+}
+.form-signin-heading>a>span{
+    font-weight: 800;
+}
+.checkbox {
+    margin-bottom: 30px;
+}
+.checkbox {
+    font-weight: normal;
+}
+
+.form-control {
+    position: relative;
+    font-size: 13px;
+    /*padding: 10px;*/
+    border-radius: 2px;
+}
+input{
+
+    margin-bottom: -1px;
+    border-bottom-left-radius:0;
+    border-bottom-right-radius: 0;
+}
+input[type="password"] {
+    margin-bottom: 20px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+#con{
+    margin-bottom: 15px;
+    height: 44px;
+}
+.btn-lg{
+    border-radius: 2px;
 }

@@ -1,5 +1,6 @@
 package controllers;
 
+import models.ProMotion;
 import models.Product;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -11,22 +12,19 @@ import java.util.List;
 /**
  * Created by ae_acer on 9/28/18.
  */
-public class ShowProducts extends Controller {
-
+public class Show extends Controller {
+    public static List<ProMotion> proMotionList = new ArrayList<ProMotion>();
     public static List<Product> productList = new ArrayList<Product>();
     public static Product product;
+
     public static Result showPro(){
         productList = Product.list();
         return Application.main(showProduct.render(productList));
     }
 
-    public static Result listdetail(String Id){
-        int i;
-        for (i = 0; i < productList.size(); i++) {
-            if (productList.get(i).getId().equals(Id)) {
-                break;
-            }
-        }
-        return Application.main(listdetail.render(productList.get(i)));
+    public static Result showPromotion(){
+        proMotionList = ProMotion.list();
+        return Application.main(showPromotion.render(proMotionList));
     }
+
 }

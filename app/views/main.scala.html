@@ -1,4 +1,4 @@
-@(content: Html)
+@(content: Html)(img:List[HomePicture])(promotion:List[ProMotion])
 
 <!DOCTYPE html>
 
@@ -9,25 +9,39 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link type="text/css" rel="stylesheet" href="/assets/stylesheets/bootstrap/css/bootstrap.css">
         <link type="text/css" rel="stylesheet" href="/assets/stylesheets/main.css">
-        <link type="text/css" rel="stylesheet" href="/assets/stylesheets/main_y.css">
         <link type="text/css" rel="stylesheet" href="/assets/stylesheets/icofont/css/icofont.css">
+        <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+
+
     </head>
-    <body>
+    <body style="font-family: 'Kanit', sans-serif;">
         <div class="container-fluid" id="phase">
+            <div class="row"   >
+                @menuTop()
+            </div>
             <div class="row">
-                <img class="img-responsive" src="/assets/images/S4.jpg" alt="">
+                @homeImg(img)
             </div>
         </div>
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
-                @menu()
+                @menu(promotion)
                 </div>
                 <div class="col-md-9">
                 @content
                 </div>
             </div>
         </div>
+        <footer class="py-5 bg-dark">
+            <div class="container">
+                <p class="m-0 text-center text-white">Copyright © Your Website 2017</p>
+                <p class="m-0 text-center text-white">นายสุรพล คำสระคู 60342360101-8 || นายเวทิตย์ ฤาชัยราม 60342360118-6</p>
+            </div>
+                <!-- /.container -->
+        </footer>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script type="text/javascript" src="/assets/stylesheets/bootstrap/js/bootstrap.min.js"></script>
     </body>
 </html>

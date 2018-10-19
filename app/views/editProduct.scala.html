@@ -1,22 +1,25 @@
 @(myForm:Form[Product], typesList:List[Types])
 @import helper._;
 
-<h1>เพิ่มสินค้า</h1>
-@if(flash.containsKey("Error")){
-    <div class="alert alert-danger">
-        <strong>ผิดพลาด!</strong> @flash.get("Error").
-    </div>
-}
 
-@helper.form(action = routes.AddProducts.updateProduct(), 'class->"from-control"){
-    @inputText(myForm("id"),'_label ->"รหัสสินค้า", 'size-> "13", 'maxlength->"13", 'required->"requied",'readonly->"readonly")
-    @inputText(myForm("name"),'_label ->"ชื่อสินค้า", 'size-> "50", 'maxlength->"40", 'required->"requied")
-    @inputText(myForm("brand"),'_label ->"รุ่น", 'size-> "50")
-    @select(myForm("types.id"), options=typesList.map(typ =>typ.getId->typ.getName),'_label ->"ประเภทสินค้า")
-    @inputText(myForm("detail"),'_label ->"รายละเอียด", 'size->"50")
-    @inputText(myForm("amount"),'_label ->"จำนวน", 'size->"50")
-    @inputText(myForm("price"),'_label ->"ราคา", 'size->"50")
-    @inputFile(myForm("picture"),'_label->"รูป")
-    <input type="submit" value="บันทึก" class="btn-success">
-    <input type="reset" value="ยกเลิก" class="btn-default">
-}
+<div class="row">
+    <div class="col-md-6">
+
+    @helper.form(action = routes.AddProducts.updateProduct(), 'class->"from-control",'enctype->"multipart/form-data"){
+            @inputText(myForm("id"),'_label ->"รหัสสินค้า", 'size-> "13", 'maxlength->"13", 'required->"requied" ,'class->"form-control")
+            @inputText(myForm("brand"),'_label ->"รุ่น", 'size-> "50",'class->"form-control")
+            @textarea(myForm("detail"),'_label ->"รายละเอียด", 'size->"50",'class->"form-control")
+            @inputText(myForm("price"),'_label ->"ราคา", 'size->"50",'class->"form-control")
+        <img src="/assets/images/product/@myForm.get.getPicture" width="100px" height="100px">
+            @inputFile(myForm("picture"),'_label->"รูป",'class->"form-control")
+            <input type="submit" value="บันทึก" class="btn btn-primary">
+            <input type="reset" value="ยกเลิก" class="btn btn-default">
+
+        </div>
+    <div class="col-md-6">
+        @inputText(myForm("name"),'_label ->"ชื่อสินค้า", 'size-> "50", 'maxlength->"40", 'required->"requied",'class->"form-control")
+        @select(myForm("types.id"), options=typesList.map(typ =>typ.getId->typ.getName),'_label ->"ประเภทสินค้า",'class->"form-control")
+        @inputText(myForm("amount"),'_label ->"จำนวน", 'size->"50",'class->"form-control")
+    </div>
+    }
+</div>

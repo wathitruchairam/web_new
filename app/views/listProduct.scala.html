@@ -40,9 +40,9 @@
                                 <td>@pr.getDetail()</td>
                                 <td>@pr.getAmount()</td>
                                 <td>@pr.getPrice()</td>
-                                <td><a href="/listdetail/@pr.getId">รายละเอียด</a> </td>
-                                <td><a href="/editProduct/@pr.getId">แก้ไข</a> </td>
-                                <td><a href="/deleteProduct/@pr.getId" onclick="return confirm('โปรดยืนยันการลบ')">ลบ</a> </td>
+                                <td><a class="btn btn-info" href="/listdetail/@pr.getId"><i class="icofont icofont-document-search"></i></a> </td>
+                                <td><a class="btn btn-warning" href="/editProduct/@pr.getId"><i class="icofont icofont-ui-edit"></i></a> </td>
+                                <td><a class="btn btn-danger" href="/deleteProduct/@pr.getId" onclick="return confirm('โปรดยืนยันการลบ')"><i class="icofont icofont-bin"></i></a> </td>
                             </tr>
                         }
                     </thead>

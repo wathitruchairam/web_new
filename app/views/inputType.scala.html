@@ -1,0 +1,19 @@
+@(myForm:Form[Types])
+@import helper._;
+
+<div class="row">
+    <div class="col-md-6">
+@if(flash.containsKey("Error")){
+    <div class="alert alert-danger">
+        <strong>ผิดพลาด!</strong> @flash.get("Error")
+    </div>
+}
+
+@helper.form(action = routes.AddTypePro.saveType(), 'class->"from-control",'enctype->"multipart/form-data"){
+    @inputText(myForm("id"),'_label ->"รหัสประเภท", 'size-> "13", 'maxlength->"13", 'required->"requied" ,'class->"form-control")
+    @inputText(myForm("name"),'_label ->"ชื่อประเภท", 'size-> "50",'class->"form-control",'required->"requied" )
+    <input type="submit" value="บันทึก" class="btn btn-primary">
+    <input type="reset" value="ยกเลิก" class="btn btn-default">
+    </div>
+    }
+</div>

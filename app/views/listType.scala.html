@@ -1,0 +1,42 @@
+@(typeList:List[Types])
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <div class="between">
+                   <h4> ข้อมูลรายการประเภทสินค้า </h4>
+
+                    <a class="btn btn-inverse-primary icon-btn" href="/inputType"><i class="icofont icofont-plus-circle"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <!-- /.panel-heading -->
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>รหัสสินค้า</th>
+                            <th>ชื่อสินค้า</th>
+                            <th></th>
+                        </tr>
+
+                        @for(pr <- typeList){
+                            <tr>
+                                <td>@pr.getId()</td>
+                                <td>@pr.getName()</td>
+                                <td align="right"><a class="btn btn-warning" href="/editType/@pr.getId"><i class="icofont icofont-ui-edit"></i></a>
+                                <a class="btn btn-danger" href="/deleteType/@pr.getId" onclick="return confirm('โปรดยืนยันการลบ')"><i class="icofont icofont-bin"></i></a> </td>
+                            </tr>
+                        }
+                    </thead>
+
+                </table>
+            </div>
+                <!-- /.table-responsive -->
+        </div>
+            <!-- /.panel-body -->
+    </div>

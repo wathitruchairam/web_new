@@ -79,7 +79,7 @@ public class Product extends Model {
     }
 
     public Double getPrice() {
-        return price;
+        return  price;
     }
 
     public void setPrice(Double price) {

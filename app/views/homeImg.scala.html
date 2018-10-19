@@ -1,0 +1,4 @@
+@(imgList:List[HomePicture])
+@for(pr <- imgList){
+    <img class="img-responsive" src="/assets/images/home/@pr.getPicture()"  alt="">
+}

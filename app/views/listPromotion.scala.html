@@ -1,0 +1,42 @@
+@(promotionList:List[ProMotion])
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <div class="between">
+                    <h4> ข้อมูลโปรโมชั่น </h4>
+
+                    <a class="btn btn-inverse-primary icon-btn" href="/inputPromotion"><i class="icofont icofont-plus-circle"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+        <!-- /.panel-heading -->
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>รหัสภาพ</th>
+                        <th>ภาพ</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+
+                    @for(pr <- promotionList){
+                        <tr>
+                            <td>@pr.getId()</td>
+                            <td><img src="/assets/images/promotion/@pr.getPicture()" width="50%"></td>
+                            <td><a class="btn btn-danger" href="/deletePromotion/@pr.getId" onclick="return confirm('โปรดยืนยันการลบ')"><i class="icofont icofont-bin"></i></a> </td>
+                        </tr>
+                    }
+                </thead>
+
+            </table>
+        </div>
+            <!-- /.table-responsive -->
+    </div>
+        <!-- /.panel-body -->
+</div>

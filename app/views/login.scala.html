@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>Login</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link type="text/css" rel="stylesheet" href="/assets/stylesheets/bootstrap/css/bootstrap.css">
+        <link type="text/css" rel="stylesheet" href="/assets/stylesheets/main.css">
+        <link type="text/css" rel="stylesheet" href="/assets/stylesheets/icofont/css/icofont.css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+    </head>
+    <body>
+        <div class="container">
+            <div class="wrapper">
+                <h1 class="form-signin-heading"><a href="/"><span>jumbo</span>&nbsp;printer</a></h1>
+                <h3 class="text-normal h4 text-center">Login to your account</h3>
+                <form action="/getLogin" method="post" class="form-signin">
+
+                    @if(flash.containsKey("loginError")){
+                        <div class="alert alert-danger">
+                            <strong>ผิดพลาด!</strong> @flash.get("loginError")
+                        </div>
+                    }
+                    <input type="text" id="con"  class="form-control" name="uid" placeholder="Email" required=""/>
+                    <input type="password" id="con" class="form-control" name="upass" placeholder="Password" required=""/>
+                    <button class="btn btn-lg btn-primary  " type="submit">Login</button>
+
+                </form>
+
+            </div>
+        </div>
+    </body>
+</html>

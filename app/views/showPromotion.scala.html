@@ -1,0 +1,14 @@
+@(promotionList:List[ProMotion])
+
+
+
+    <div class="row">
+        @for(pr <- promotionList){
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <img src="assets/images/promotion/@pr.getPicture()" alt="...">
+            </div>
+
+        </div>
+        }
+</div>

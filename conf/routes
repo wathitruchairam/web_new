@@ -4,6 +4,14 @@
 
 # Home page
 GET     /                           controllers.Application.index()
+#addType
+GET     /listType                   controllers.AddTypePro.listType()
+GET     /inputType                  controllers.AddTypePro.inputType()
+POST    /saveType                   controllers.AddTypePro.saveType()
+GET     /editType/:id               controllers.AddTypePro.editType(id:String)
+POST    /updateType                 controllers.AddTypePro.updateType()
+GET     /deleteType/:id             controllers.AddTypePro.deleteType(id:String)
+#End
 
 #addProduct
 GET     /listProduct                controllers.AddProducts.listProduct()
@@ -13,8 +21,27 @@ GET     /editProduct/:id            controllers.AddProducts.editProduct(id:Strin
 POST    /updateProduct              controllers.AddProducts.updateProduct()
 GET     /deleteProduct/:id          controllers.AddProducts.deleteProduct(id:String)
 #End
-GET     /listdetail/:id             controllers.ShowProducts.listdetail(id:String)
 
-GET     /showProducts               controllers.ShowProducts.showPro()
+GET     /listdetail/:id             controllers.AddProducts.listdetail(id:String)
+
+#addimgHome
+GET     /listImg                    controllers.AddHomeimg.listImg()
+GET     /inputImg                   controllers.AddHomeimg.inputImg()
+POST    /saveImg                    controllers.AddHomeimg.saveImg()
+GET     /deleteImg/:id              controllers.AddHomeimg.deleteImg(id:String)
+#end
+
+#addimgPromotion
+GET     /listPromotion              controllers.AddProMotion.listPromotion()
+GET     /inputPromotion             controllers.AddProMotion.inputPromotion()
+POST    /savePromotion              controllers.AddProMotion.savePromotion()
+GET     /deletePromotion/:id        controllers.AddProMotion.deletePromotion(id:String)
+#end
+
+GET     /showProducts               controllers.Show.showPro()
+GET     /showPromotion              controllers.Show.showPromotion()
+
+GET     /Login                      controllers.Application.Login()
+POST    /getLogin                   controllers.Application.getLogin()
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
