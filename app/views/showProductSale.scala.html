@@ -1,0 +1,65 @@
+@(productList:List[Product],basketList:List[Basket])
+@if(session.get("uname") != null) {
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <div class="between">
+                        <h4> รายการซื้อสินค้า </h4>
+                        </div>
+                </div>
+            </div>
+        </div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>รายการสินค้า</th>
+                        <th></th>
+                        <th>ราคา/หน่วย</th>
+                        <th>จำนวน</th>
+                        <th>ลบ</th>
+                    </tr>
+                    @if(basketList != null){
+                        @for(basket <- basketList){
+                        <tr >
+                            <td><img src="assets/images/product/@basket.getProduct.getPicture" alt="..." width="80px"> </td>
+                            <td>@basket.getProduct.getName() @basket.getProduct.getBrand()</td>
+                            <td>@basket.getProduct.getPrice()</td>
+                            <td>@basket.getAmount()</td>
+                            <td><a href="/removeItem/@basket.getProduct.getId">remove</a></td>
+                        </tr>
+
+                        }
+                    }else{
+                       <tr>
+                           <td>None</td>
+                       </tr>
+                    }
+                    </thead>
+
+            </table>
+
+        </div>
+        <a class="btn btn-inverse-primary icon-btn" href="/showProducts">เลือกสินค้า</a>
+        <a class="btn btn-inverse-primary icon-btn" href="/checkBill">ดำเนินการต่อ</a>
+
+    </div>
+
+</div>
+}else{
+    <div class="error-template">
+        <h1>
+            Oops!</h1>
+        <h2>
+            404 Not Found</h2>
+        <div class="error-details">
+            กรุณาลงชื่อเข้าใช้ก่อนเลือกสินค้า!
+        </div>
+        <div class="error-actions">
+            <a href="/Login" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span>
+                Login Page </a><a href="/formContact" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-envelope"></span> Contact Support </a>
+        </div>
+    </div>
+}

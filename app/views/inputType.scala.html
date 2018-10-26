@@ -2,7 +2,7 @@
 @import helper._;
 
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6" id="phase">
 @if(flash.containsKey("Error")){
     <div class="alert alert-danger">
         <strong>ผิดพลาด!</strong> @flash.get("Error")

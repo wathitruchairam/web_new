@@ -23,25 +23,51 @@ GET     /deleteProduct/:id          controllers.AddProducts.deleteProduct(id:Str
 #End
 
 GET     /listdetail/:id             controllers.AddProducts.listdetail(id:String)
+GET     /listDetailContact/:id      controllers.Addcontact.listdetailContact(id:String)
 
 #addimgHome
 GET     /listImg                    controllers.AddHomeimg.listImg()
 GET     /inputImg                   controllers.AddHomeimg.inputImg()
 POST    /saveImg                    controllers.AddHomeimg.saveImg()
 GET     /deleteImg/:id              controllers.AddHomeimg.deleteImg(id:String)
-#end
+
 
 #addimgPromotion
 GET     /listPromotion              controllers.AddProMotion.listPromotion()
 GET     /inputPromotion             controllers.AddProMotion.inputPromotion()
 POST    /savePromotion              controllers.AddProMotion.savePromotion()
 GET     /deletePromotion/:id        controllers.AddProMotion.deletePromotion(id:String)
-#end
+
+#Contact
+GET     /listContact                controllers.Addcontact.listcontact()
+GET     /formContact                controllers.Addcontact.formContact()
+POST    /postContact                controllers.Addcontact.postContact()
+GET     /deleteContact/:id          controllers.Addcontact.deleteContact(id:String)
+
+
+
+#Register
+GET     /Register                   controllers.Application.formregister()
+POST    /postRegister               controllers.Application.postRegister()
 
 GET     /showProducts               controllers.Show.showPro()
 GET     /showPromotion              controllers.Show.showPromotion()
 
+#User
+GET     /listUser                   controllers.Listuser.listUser()
+GET     /deleteUser/:id             controllers.Listuser.deleteUser(id:String)
+GET     /listDetailUser/:id         controllers.Listuser.listUserdetail(id:String)
+
+#Login/Logout
 GET     /Login                      controllers.Application.Login()
-POST    /getLogin                   controllers.Application.getLogin()
+POST    /postLogin                  controllers.Application.postLogin()
+GET     /Logout                     controllers.Application.Logout()
+
+#chache
+GET     /showProductSale            controllers.Show.showProductsale()
+GET     /addOrder/:id               controllers.Show.addOrder(id:String)
+GET     /removeItem/:id             controllers.Show.removeItem(id:String)
+GET     /checkBill                  controllers.Show.checkBill()
+GET     /saveBill                   controllers.Show.saveBill()
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

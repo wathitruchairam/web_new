@@ -9,6 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link type="text/css" rel="stylesheet" href="/assets/stylesheets/bootstrap/css/bootstrap.css">
         <link type="text/css" rel="stylesheet" href="/assets/stylesheets/main.css">
+
         <link type="text/css" rel="stylesheet" href="/assets/stylesheets/icofont/css/icofont.css">
         <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
@@ -19,6 +20,17 @@
         <div class="container-fluid" id="phase">
             <div class="row"   >
                 @menuTop()
+            </div>
+            <div class="row" id="tabcolor">
+                <div class="container">
+                    <div class="text-right">
+                        @if(session.get("uid")==null) {
+                            <h5><a href="/Login">เข้าสู่ระบบ</a>&nbsp;|&nbsp;<a href="/Register">สมัครสมาชิก</a>&nbsp;</h5>
+                        }else{
+                            <h5>สวัสดีคุณ:@session.get("uname") @session.get("uemail") @session.get("uphone") @session.get("ustatus") <a href="/Logout"><span class="glyphicon glyphicon-user"></span> Logout</a></h5>
+                        }
+                    </div>
+                </div>
             </div>
             <div class="row">
                 @homeImg(img)

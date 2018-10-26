@@ -13,20 +13,20 @@
         <div class="container">
             <div class="wrapper">
                 <h1 class="form-signin-heading"><a href="/"><span>jumbo</span>&nbsp;printer</a></h1>
-                <h3 class="text-normal h4 text-center">Login to your account</h3>
-                <form action="/getLogin" method="post" class="form-signin">
+                <p align="center">ลงชื่อเข้าใช้บัญชีของคุณ</p>
+                <form action="/postLogin" method="post" class="form-signin">
 
                     @if(flash.containsKey("loginError")){
                         <div class="alert alert-danger">
                             <strong>ผิดพลาด!</strong> @flash.get("loginError")
                         </div>
                     }
-                    <input type="text" id="con"  class="form-control" name="uid" placeholder="Email" required=""/>
+                    <input type="text" id="con"  class="form-control" name="uuser" placeholder="Useername" required=""/>
                     <input type="password" id="con" class="form-control" name="upass" placeholder="Password" required=""/>
                     <button class="btn btn-lg btn-primary  " type="submit">Login</button>
 
                 </form>
-
+                <p align="center">ยังไม่มีบัญชีผู้ใช้?<strong><a href="/Register">สมัครเลย</a></strong></p>
             </div>
         </div>
     </body>

@@ -1,4 +1,4 @@
-@(productList:List[Product])
+@(productList:List[Product],basketList:List[Basket])
 
 
 
@@ -10,7 +10,7 @@
                 <div class="caption">
                     <h5>@pr.getName @pr.getBrand</h5>
                     <p>ราคา<strong class="price">@pr.getPrice</strong></p>
-                    <p><a href="#" class="btn btn-primary" role="button">ซื้อเลย</a> <a href="#" class="btn btn-default" role="button">รายละเอียด</a></p>
+                    <p><a href="/addOrder/@pr.getId" class="btn btn-primary" role="button">ซื้อเลย</a> <a href="#" class="btn btn-default" role="button">รายละเอียด</a></p>
                 </div>
             </div>
 

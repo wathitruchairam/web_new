@@ -1,0 +1,55 @@
+@(contacts:Contact)
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <div class="between">
+                    <h4> ข้อมูลรายละเอียดข้อความติดต่อ </h4>
+
+                    <a class="btn btn-inverse-primary icon-btn" href="/listContact"><i class="icofont icofont-reply"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+        <!-- /.panel-heading -->
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>รายการ</th>
+                        <th>รายละอียด</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>ชื่อเรื่อง</th>
+                        <td>@contacts.getSubject()</td>
+                    </tr>
+                    <tr>
+                        <th>รายละเอียด</th>
+                        <td>@contacts.getDescription()</td>
+                    </tr>
+                    <tr>
+                        <th>ชื่อผู้ส่ง</th>
+                        <td>@contacts.getName</td>
+                    </tr>
+                    <tr>
+                        <th>อีเมล</th>
+                        <td>@contacts.getEmail()</td>
+                    </tr>
+                    <tr>
+                        <th>เบอร์โทรศัพท์</th>
+                        <td>@contacts.getPhone()</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+        </div>
+            <!-- /.table-responsive -->
+    </div>
+        <!-- /.panel-body -->
+</div>

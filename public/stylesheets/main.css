@@ -3,6 +3,16 @@
  }
 
 /*pagehome*/
+#tabcolor{
+    background-color: #fcb715;
+}
+h5>a{
+    color:#105a75;
+}
+h5>a:hover{
+    text-decoration: none;
+    color: #fff;
+}
 .it-title{
     border-bottom: 1px solid #eee;
     margin-bottom: 30px;
@@ -61,6 +71,11 @@
     color: #fff;
 }
 /*End*/
+/*register*/
+.wrap{
+    vertical-align:middle;
+    margin-top: 8%;
+}
 
 /*Login*/
 .wrapper {
@@ -88,11 +103,10 @@
     color: #565656;
     font-weight: 100;
 }
-.text-normal{
-    font-weight: 400;
-}
+
 .form-signin-heading>a>span{
     font-weight: 800;
+    color: #105a75;
 }
 .checkbox {
     margin-bottom: 30px;
@@ -103,7 +117,7 @@
 
 .form-control {
     position: relative;
-    font-size: 13px;
+    /*font-size: 13px;*/
     /*padding: 10px;*/
     border-radius: 2px;
 }
@@ -125,3 +139,7 @@ input[type="password"] {
 .btn-lg{
     border-radius: 2px;
 }
+/*contact*/
+.error-template {padding: 40px 15px;text-align: center;}
+.error-actions {margin-top:15px;margin-bottom:15px;}
+.error-actions .btn { margin-right:10px; }

@@ -1,0 +1,50 @@
+<div class="row">
+<div class="col-md-6">
+    <div class="it-title">
+        <h3><span>ติดต่อเรา</span></h3>
+    </div>
+
+    @if(flash.containsKey("mesError")){
+        <div class="alert alert-danger">
+            <strong>ผิดพลาด!</strong> @flash.get("mesError")
+        </div>
+    }
+
+        <form action="/postContact" method="post" id="phase">
+            ชื่อ-นามสกุล:<br>
+            <input class="form-control" type="text" name="cname">
+            <br>
+            อีเมล:<br>
+            <input class="form-control" type="email" name="cemail" >
+            <br>
+            เบอร์โทร:<br>
+            <input class="form-control" type="number" name="ctel">
+            <br>
+            ชื่อหัวข้อ:<br>
+            <input class="form-control" type="text" name="csubject">
+            <br>
+            รายละเอียด:<br>
+            <textarea class="form-control" rows="5" cols="30" name="cdetail"></textarea>
+            <br>
+            <input type="submit" value="ส่งข้อความ" class="btn btn-success">
+
+        </form>
+
+</div>
+
+    <div class="col-md-6">
+        <div class="it-title">
+            <h3><span>Google Map</span></h3>
+        </div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3826.9322551185355!2d102.86140831434106!3d16.428266634080618!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31228bda829566e7%3A0x24ca9da06e436ef3!2z4Lih4Lir4Liy4Lin4Li04LiX4Lii4Liy4Lil4Lix4Lii4LmA4LiX4LiE4LmC4LiZ4LmC4Lil4Lii4Li14Lij4Liy4LiK4Lih4LiH4LiE4Lil4Lit4Li14Liq4Liy4LiZIOC4p-C4tOC4l-C4ouC4suC5gOC4guC4leC4guC4reC4meC5geC4geC5iOC4mQ!5e0!3m2!1sth!2sth!4v1539958079845"
+        width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
+        <br>
+        <br>
+        <div class="it-title">
+            <h3><span>เบอร์โทรติดต่อ</span></h3>
+        </div>
+        <h4>เจ้าหน้าที่ฝ่ายขาย</h4><br>
+        <p>0991389464,&nbsp;0888888888</p>
+        <p>นอกเวลาทำงาน 0991389464</p>
+    </div>
+</div>

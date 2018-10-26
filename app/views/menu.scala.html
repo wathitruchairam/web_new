@@ -1,23 +1,42 @@
 @(promotionList:List[ProMotion])
 
 <div class="list-group">
-    <p class="list-group-item disabled">
-    ประเภทสินค้า
-    </p>
-    <a href="/" class="list-group-item">หน้าแรก</a>
-    <a href="/showProducts" class="list-group-item">สินค้า</a>
-    <a href="/showPromotion" class="list-group-item">โปรโมชั่น</a>
-    <a href="/form" class="list-group-item">วิธีการสั่งซื้อ</a>
-    <a href="/form" class="list-group-item">บริการหลังการขาย</a>
-    <a href="/form" class="list-group-item">เงื่อนไขรับประกัน</a>
-    <p class="list-group-item disabled">
-    การจัดการ
-    </p>
-    <a href="/listImg" class="list-group-item">จัดการหน้าแรก</a>
-    <a href="/listProduct" class="list-group-item">จัดการสินค้า</a>
-    <a href="/listType" class="list-group-item">จัดการประเภทสินค้า</a>
-    <a href="/listPromotion" class="list-group-item">จัดการโปรโมชั่น</a>
-    <a href="#" class="list-group-item">BROTHER</a>
+    @if(session.get("uname")==null) {
+
+        <p class="list-group-item disabled">
+            หมวดหมู่
+        </p>
+        <a href="/" class="list-group-item">หน้าแรก</a>
+        <a href="/showProducts" class="list-group-item">สินค้า</a>
+        <a href="/showPromotion" class="list-group-item">โปรโมชั่น</a>
+        <a href="/showProductSale" class="list-group-item">รายการสั่งซื้อ<i class="icofont icofont-cart-alt"></i></a>
+        <a href="/form" class="list-group-item">วิธีการสั่งซื้อ</a>
+        <a href="/form" class="list-group-item">บริการหลังการขาย</a>
+        <a href="/form" class="list-group-item">เงื่อนไขรับประกัน</a>
+    }else {
+        @if(session.get("ustatus")=="admin") {
+            <p class="list-group-item disabled">
+                การจัดการ
+            </p>
+            <a href="/listImg" class="list-group-item">จัดการหน้าแรก</a>
+            <a href="/listProduct" class="list-group-item">จัดการสินค้า</a>
+            <a href="/listUser" class="list-group-item">จัดการผู้ใช้</a>
+            <a href="/listType" class="list-group-item">จัดการประเภทสินค้า</a>
+            <a href="/listPromotion" class="list-group-item">จัดการโปรโมชั่น</a>
+            <a href="listContact" class="list-group-item">ข้อความแจ้งเตือน</a>
+        }else{
+            <p class="list-group-item disabled">
+                หมวดหมู่
+            </p>
+            <a href="/" class="list-group-item">หน้าแรก</a>
+            <a href="/showProducts" class="list-group-item">สินค้า</a>
+            <a href="/showPromotion" class="list-group-item">โปรโมชั่น</a>
+            <a href="/showProductSale" class="list-group-item">รายการสั่งซื้อ<i class="icofont icofont-cart-alt"></i></a>
+            <a href="/form" class="list-group-item">วิธีการสั่งซื้อ</a>
+            <a href="/form" class="list-group-item">บริการหลังการขาย</a>
+            <a href="/form" class="list-group-item">เงื่อนไขรับประกัน</a>
+        }
+    }
 </div>
 
 <div id="phase">

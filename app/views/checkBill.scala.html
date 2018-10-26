@@ -1,0 +1,33 @@
+@(basketList:List[Basket])
+
+<div class="panel panel-default">
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+
+            </div>
+    </div>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+
+                    </tr>
+                    @for(basket <- basketList){
+                            <tr class="success">
+                                <td><img src="assets/images/product/@basket.getProduct.getPicture" alt="..." width="80px"> </td>
+                                <td>@basket.getProduct.getId</td>
+                                <td>@basket.getProduct.getName</td>
+                                <td>@basket.getProduct.getPrice</td>
+                                <td>@basket.getAmount</td>
+                                <td>@(basket.getProduct.getPrice * basket.getAmount)</td>
+                            </tr>
+                    }
+                </thead>
+
+            </table>
+
+        </div>
+
+</div>
+<a class="btn btn-inverse-primary icon-btn" href="/saveBill">ยืนยัน</a>
+<a class="btn btn-inverse-dask icon-btn" href="/showProductSale">ยกเลิก</a>

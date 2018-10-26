@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>Register</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link type="text/css" rel="stylesheet" href="/assets/stylesheets/bootstrap/css/bootstrap.css">
+        <link type="text/css" rel="stylesheet" href="/assets/stylesheets/main.css">
+        <link type="text/css" rel="stylesheet" href="/assets/stylesheets/icofont/css/icofont.css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+    </head>
+    <body>
+        <div class="container">
+            <div class="wrap">
+                <h1 class="form-signin-heading"><a href="/"><span>jumbo</span>&nbsp;printer</a></h1>
+                <p align="center">สมัครเข้าใช้งานบัญชีของคุณ</p>
+                <form action="/postRegister" method="post" class="form-signin">
+
+                    @if(flash.containsKey("loginError")){
+                        <div class="alert alert-danger">
+                            <strong>ผิดพลาด!</strong> @flash.get("loginError")
+                        </div>
+                    }
+                    <input type="text" id="con"  class="form-control" name="Rname" placeholder="Name" required/>
+                    <input type="text" id="con"  class="form-control" name="Rusername" placeholder="Username" required/>
+                    <input type="password" id="con" class="form-control" name="Rpass" placeholder="Password" required/>
+                    <input type="email" id="con"  class="form-control" name="Remail" placeholder="Email" required/>
+                    <input type="number" id="con"  class="form-control" name="Rphone" placeholder="Tel" required/>
+                    <label>
+                    <input type="checkbox">
+                    <span>I agree to the terms and conditions</span>
+                    </label>
+                    <button class="btn btn-lg btn-primary" type="submit">Register</button>
+
+                </form>
+                <p align="center">มีบัญชีผู้ใช้แล้ว<strong><a href="/Login">ลงชื่อเข้าใช้งาน</a></strong></p>
+            </div>
+        </div>
+    </body>
+</html>
