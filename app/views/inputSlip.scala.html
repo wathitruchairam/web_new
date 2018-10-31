@@ -1,22 +1,20 @@
-@(myForm:Form[HomePicture])
+@(myForm:Form[Slip])
+
 @import helper._;
 
 <div class="row">
     <div class="col-md-6" id="phase">
-
         @if(flash.containsKey("Error")){
             <div class="alert alert-danger">
                 <strong>ผิดพลาด!</strong> @flash.get("Error")
             </div>
         }
 
-        @helper.form(action = routes.AddHomeimg.saveImg(), 'class->"from-control",'enctype->"multipart/form-data"){
-            @inputText(myForm("id"),'_label ->"รหัสภาพ", 'size-> "13", 'maxlength->"13", 'required->"requied" ,'class->"form-control")
-            @inputFile(myForm("picture"),'_label->"รูป", 'required->"requied" )
+        @helper.form(action = routes.Addslip.saveSlip(), 'class->"from-control",'enctype->"multipart/form-data"){
+            @inputText(myForm("slip_order"),'_label ->"เลขที่สั่งซื้อ", 'size-> "50",'class->"form-control",'required->"requied" )
+            @inputFile(myForm("picture"),'_label->"รูปถ่ายสลิป", 'required->"requied" )
             <input type="submit" value="บันทึก" class="btn btn-primary">
             <input type="reset" value="ยกเลิก" class="btn btn-default">
-
-            }
-
         </div>
+    }
 </div>

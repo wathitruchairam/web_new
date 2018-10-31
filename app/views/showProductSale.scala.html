@@ -43,8 +43,11 @@
 
         </div>
         <a class="btn btn-inverse-primary icon-btn" href="/showProducts">เลือกสินค้า</a>
-        <a class="btn btn-inverse-primary icon-btn" href="/checkBill">ดำเนินการต่อ</a>
+        @if(basketList==null){
 
+        }else{
+        <a class="btn btn-inverse-primary icon-btn" href="/checkBill">ดำเนินการต่อ</a>
+        }
     </div>
 
 </div>

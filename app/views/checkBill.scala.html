@@ -1,33 +1,79 @@
-@(basketList:List[Basket])
+@(basketList:List[Basket],user:User)
 
 <div class="panel panel-default">
-        <div class="row">
-            <div class="col-sm-12 col-md-12">
-
-            </div>
-    </div>
+    <div class="panel-body">
         <div class="table-responsive">
             <table class="table table-hover">
                 <thead>
                     <tr>
-
+                        <th>รูปสินค้า</th>
+                        <th>รหัสสินค้า</th>
+                        <th>ชื่อสินค้า</th>
+                        <th>รุ่น</th>
+                        <th>ราคา/หน่วย</th>
+                        <th>จำนวน</th>
+                        <th>ราคารวม</th>
                     </tr>
-                    @for(basket <- basketList){
-                            <tr class="success">
-                                <td><img src="assets/images/product/@basket.getProduct.getPicture" alt="..." width="80px"> </td>
-                                <td>@basket.getProduct.getId</td>
-                                <td>@basket.getProduct.getName</td>
-                                <td>@basket.getProduct.getPrice</td>
-                                <td>@basket.getAmount</td>
-                                <td>@(basket.getProduct.getPrice * basket.getAmount)</td>
-                            </tr>
+
+                    @for(basket<- basketList){
+                        <tr>
+                            <td><img src="assets/images/product/@basket.getProduct.getPicture" alt="..." width="80px"> </td>
+                            <td>@basket.getProduct.getId</td>
+                            <td>@basket.getProduct.getName</td>
+                            <td>@basket.getProduct.getBrand</td>
+                            <td>@basket.getProduct.getPrice</td>
+                            <td>@basket.getAmount</td>
+                            <td>@(basket.getProduct.getPrice * basket.getAmount)</td>
+                        </tr>
                     }
-                </thead>
+                    </thead>
 
             </table>
-
         </div>
+            <!-- /.table-responsive -->
+    </div>
+</div>
 
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <div class="between">
+                    <h4>ที่อยู่ผู้รับ</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+        <!-- /.panel-heading -->
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table>
+                <tbody>
+                    <tr>
+                        <th>ชื่อ-สกุล :&nbsp;</th>
+                        <td>@user.getName()</td>
+                    </tr>
+                    <tr>
+                        <th>ที่อยู่ :</th>
+                        <td>@user.getAddress()</td>
+                    </tr>
+                    <tr>
+                        <th>อีเมล :</th>
+                        <td>@user.getEmail()</td>
+                    </tr>
+                    <tr>
+                        <th>เบอร์โทร :</th>
+                        <td>@user.getPhone()</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+        </div>
+            <!-- /.table-responsive -->
+    </div>
 </div>
 <a class="btn btn-inverse-primary icon-btn" href="/saveBill">ยืนยัน</a>
 <a class="btn btn-inverse-dask icon-btn" href="/showProductSale">ยกเลิก</a>

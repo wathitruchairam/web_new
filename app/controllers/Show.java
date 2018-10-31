@@ -16,6 +16,8 @@ import java.util.List;
 public class Show extends Controller {
     public static List<ProMotion> proMotionList = new ArrayList<ProMotion>();
     public static List<Product> productList = new ArrayList<Product>();
+    public static List<Condition>conditionList= new ArrayList<Condition>();
+    public static List<Modeorders>modeordersList= new ArrayList<Modeorders>();
     public static Product product;
     public List<OrdersDetail>basketList = new ArrayList<OrdersDetail>();
 
@@ -30,6 +32,11 @@ public class Show extends Controller {
         return Application.main(showPromotion.render(proMotionList));
     }
 
+    public static Result showCondition(){
+        conditionList = Condition.list();
+        return Application.main(ShowCondition.render(conditionList));
+    }
+
     public static Result showProductsale(){
         productList = Product.list();
 
@@ -38,73 +45,9 @@ public class Show extends Controller {
         return Application.main(showProductSale.render(productList,basketList));
     }
 
-    public static Result addOrder(String id) {
-        List<Basket> basketList = new ArrayList<Basket>();
-        boolean found = false;
-        if (Cache.get("basketList") != null) {
-            basketList.addAll((List<Basket>) Cache.get("basketList"));
-            for (int i = 0; i < basketList.size(); i++) {
-                if (basketList.get(i).getProduct().getId().equals(id)) {
-                    int amount = basketList.get(i).getAmount();
-                    basketList.get(i).setAmount(amount + 1);
-                    found = true;
-                    break;
-                }
-            }
-        }
-        if(found == false){
-            product = Product.find.byId(id);
-            basketList.add(new Basket(product,1));
-        }
-        Cache.set("basketList",basketList);
-        return redirect("/showProductSale");
-    }
-
-    public static Result removeItem(String id){
-        List<Basket>basketList = new ArrayList<Basket>();
-        if(Cache.get("basketList") != null){
-            basketList.addAll((List<Basket>)Cache.get("basketList"));
-            for(int i=0;i<basketList.size();i++){
-                if (basketList.get(i).getProduct().getId().equals(id)){
-                    basketList.remove(i);
-                    break;
-                }
-            }
-        }
-        Cache.set("basketList",basketList);
-        return redirect("/showProductSale");
-    }
-
-    public static Result checkBill(){
-        List<Basket>basketList = new ArrayList<Basket>();
-        if(Cache.get("basketList")!= null){
-            basketList = (List<Basket>) Cache.get("basketList");
-        }
-        return Application.main(checkBill.render(basketList));
-    }
-
-    public static Result saveBill(){
-        List<Basket>basketList = new ArrayList<Basket>();
-        if(Cache.get("basketList") != null){
-            Orders orders = new Orders();
-            User user = User.finder.byId(session().get("uid"));
-            orders.setDate(new Date());
-            orders.setUser(user);
-            orders.setStatus("order");
-            orders.create(orders);
-
-            basketList = (List<Basket>) Cache.get("basketList");
-            for (int i=0;i<basketList.size();i++){
-                OrdersDetail ordersDetail = new OrdersDetail();
-                ordersDetail.setOrders(orders);
-                ordersDetail.setProduct(basketList.get(i).getProduct());
-                ordersDetail.setAmount(basketList.get(i).getAmount());
-                OrdersDetail.create(ordersDetail);
-            }
-        }
-
-        Cache.remove("basketList");
-        return redirect("/showProductSale");
+    public static Result showModeorders(){
+        modeordersList = Modeorders.list();
+        return Application.main(ShowModeorders.render(modeordersList));
     }
 
 }

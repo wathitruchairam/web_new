@@ -1,0 +1,51 @@
+@(condition:Condition)
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <div class="between">
+                    <h4> เงื่อนไข </h4>
+                    <a class="btn btn-inverse-primary icon-btn" href="/listCondition"><i class="icofont icofont-reply"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+        <!-- /.panel-heading -->
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>เงื่อนไขการรับประกันสินค้า</th>
+                    </tr>
+                    <tr>
+                        <td>@condition.getPro</td>
+                    </tr>
+
+
+                    <tr>
+                        <th>เงื่อนไขการซ่อม</th>
+                    </tr>
+
+                        <tr>
+                            <td>@condition.getRepair</td>
+                        </tr>
+
+                    <tr>
+                        <th>อัตราค่าบริการ</th>
+                    </tr>
+
+                    <tr>
+                        <td>@condition.getRate</td>
+                    </tr>
+                </thead>
+
+            </table>
+        </div>
+            <!-- /.table-responsive -->
+    </div>
+        <!-- /.panel-body -->
+</div>
+

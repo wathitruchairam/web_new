@@ -21,6 +21,7 @@ public class User extends Model{
     private String username;
     private String password;
     private String email;
+    private String address;
     private String phone;
     private String status;
 
@@ -29,13 +30,14 @@ public class User extends Model{
         setStatus();
     }
 
-    public User( String name,String username, String password ,String email, String phone, String status) {
+    public User( String name,String username, String password ,String email,String address, String phone, String status) {
         setId();
         setStatus();
         this.name = name;
         this.username = username;
         this.password = password;
         this.email = email;
+        this.address = address;
         this.phone = phone;
 
     }
@@ -79,6 +81,14 @@ public class User extends Model{
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getPhone() {

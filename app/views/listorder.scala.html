@@ -1,0 +1,81 @@
+@(orderDetail:List[OrdersDetail])
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>web_new</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link type="text/css" rel="stylesheet" href="/assets/stylesheets/bootstrap/css/bootstrap.css">
+        <link type="text/css" rel="stylesheet" href="/assets/stylesheets/main.css">
+
+        <link type="text/css" rel="stylesheet" href="/assets/stylesheets/icofont/css/icofont.css">
+        <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+
+
+    </head>
+<body style="font-family: 'Kanit', sans-serif;">
+    <div class="wrap">
+        <h1 class="form-signin-heading"><a href="/"><span>jumbo</span>&nbsp;printer</a></h1>
+        <p align="center" >รายการสั่งซื้อนี้ไม่สามารถลบได ้</p>
+    </div>
+<div class="container">
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <div class="between">
+                    <h4>รายการขายสินค้า </h4>
+                    <a class="btn btn-inverse-primary icon-btn" href="/"><i class="icofont icofont-reply"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+        <!-- /.panel-heading -->
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>รหัสรายการขาย</th>
+                        <th>ชื่อลูกค้า</th>
+                        <th>ที่อยู่ลูกค้า</th>
+                        <th>อีเมลลูกค้า</th>
+                        <th>เบอร์โทรลูกค้า</th>
+                        <th>วันที่ซื้อ</th>
+                        <th>สถานะ</th>
+                        <th>ชื่อสินค้า</th>
+                        <th>รุ่น</th>
+                        <th>ราคา/หน่วย</th>
+                        <th>จำนวน</th>
+                        <th>ราคารวม</th>
+                    </tr>
+
+                    @for(pr <- orderDetail){
+                        <tr>
+                            <td>@pr.getOrders.getId</td>
+                            <td>@pr.getOrders.getUser.getName</td>
+                            <td>@pr.getOrders.getUser.getAddress</td>
+                            <td>@pr.getOrders.getUser.getEmail</td>
+                            <td>@pr.getOrders.getUser.getPhone</td>
+                            <td>@pr.getOrders.getDate</td>
+                            <td>@pr.getOrders.getStatus</td>
+                            <td>@pr.getProduct.getName</td>
+                            <td>@pr.getProduct.getBrand</td>
+                            <td>@pr.getProduct.getPrice</td>
+                            <td>@pr.getAmount</td>
+                            <td>@(pr.getProduct.getPrice * pr.getAmount)</td>
+                        </tr>
+                    }
+                    </thead>
+
+            </table>
+        </div>
+            <!-- /.table-responsive -->
+    </div>
+        <!-- /.panel-body -->
+</div>
+</div>
+</body>
+</html>

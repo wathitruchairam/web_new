@@ -1,0 +1,7 @@
+@(mode:List[Modeorders])
+
+<div class="row">
+    @for(m <- mode){
+        <img src="assets/images/mode/@m.getPicture()" alt="...">
+    }
+</div>

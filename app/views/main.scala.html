@@ -25,9 +25,9 @@
                 <div class="container">
                     <div class="text-right">
                         @if(session.get("uid")==null) {
-                            <h5><a href="/Login">เข้าสู่ระบบ</a>&nbsp;|&nbsp;<a href="/Register">สมัครสมาชิก</a>&nbsp;</h5>
+                            <h5><a href="#" id="show">เข้าสู่ระบบ</a>&nbsp;|&nbsp;<a href="/Register">สมัครสมาชิก</a>&nbsp;</h5>
                         }else{
-                            <h5>สวัสดีคุณ:@session.get("uname") @session.get("uemail") @session.get("uphone") @session.get("ustatus") <a href="/Logout"><span class="glyphicon glyphicon-user"></span> Logout</a></h5>
+                            <h5>สวัสดีคุณ:@session.get("uname") @session.get("uemail") @session.get("ustatus") <a href="/Logout"><span class="glyphicon glyphicon-user"></span> Logout</a></h5>
                         }
                     </div>
                 </div>
@@ -55,5 +55,24 @@
         </footer>
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script type="text/javascript" src="/assets/stylesheets/bootstrap/js/bootstrap.min.js"></script>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f" crossorigin="anonymous"></script>
+        <script src="/assets/javascripts/loadingOverlay.js"></script>
+
+        @*โหลดหน้าล็อกอิน*@
+        <script data-example="show-3-seconds">
+        (function() {
+            var show3SecondsBtn = document.getElementById('show');
+            show3SecondsBtn.onclick = function() {
+                var spinHandle = loadingOverlay.activate();
+                setTimeout(function() {
+                	window.location="/Login";
+                    loadingOverlay.cancel(spinHandle);
+                }, 1000);
+
+                return false;
+            };
+        })();
+    </script>
     </body>
 </html>

@@ -11,7 +11,7 @@ POST    /saveType                   controllers.AddTypePro.saveType()
 GET     /editType/:id               controllers.AddTypePro.editType(id:String)
 POST    /updateType                 controllers.AddTypePro.updateType()
 GET     /deleteType/:id             controllers.AddTypePro.deleteType(id:String)
-#End
+
 
 #addProduct
 GET     /listProduct                controllers.AddProducts.listProduct()
@@ -20,7 +20,7 @@ POST    /saveProduct                controllers.AddProducts.saveProduct()
 GET     /editProduct/:id            controllers.AddProducts.editProduct(id:String)
 POST    /updateProduct              controllers.AddProducts.updateProduct()
 GET     /deleteProduct/:id          controllers.AddProducts.deleteProduct(id:String)
-#End
+
 
 GET     /listdetail/:id             controllers.AddProducts.listdetail(id:String)
 GET     /listDetailContact/:id      controllers.Addcontact.listdetailContact(id:String)
@@ -31,6 +31,11 @@ GET     /inputImg                   controllers.AddHomeimg.inputImg()
 POST    /saveImg                    controllers.AddHomeimg.saveImg()
 GET     /deleteImg/:id              controllers.AddHomeimg.deleteImg(id:String)
 
+#modeorders วิธีการสั่งซื้อ
+GET     /listMode                    controllers.Addmodeorders.listModeorders()
+GET     /inputMode                   controllers.Addmodeorders.inputModeorders()
+POST    /saveMode                    controllers.Addmodeorders.saveModeorders()
+GET     /deleteMode/:id              controllers.Addmodeorders.deleteModeorders(id:String)
 
 #addimgPromotion
 GET     /listPromotion              controllers.AddProMotion.listPromotion()
@@ -38,20 +43,35 @@ GET     /inputPromotion             controllers.AddProMotion.inputPromotion()
 POST    /savePromotion              controllers.AddProMotion.savePromotion()
 GET     /deletePromotion/:id        controllers.AddProMotion.deletePromotion(id:String)
 
+#addslip
+GET     /inputSlip                  controllers.Addslip.inputSlip()
+POST    /saveSlip                   controllers.Addslip.saveSlip()
+
 #Contact
 GET     /listContact                controllers.Addcontact.listcontact()
 GET     /formContact                controllers.Addcontact.formContact()
 POST    /postContact                controllers.Addcontact.postContact()
 GET     /deleteContact/:id          controllers.Addcontact.deleteContact(id:String)
 
-
+#Condition
+GET     /listCondition              controllers.AddCondition.listCondition()
+GET     /inputCondition             controllers.AddCondition.inputCondition()
+POST    /saveCondition              controllers.AddCondition.saveCondition()
+GET     /editCondition/:id          controllers.AddCondition.editCondition(id:String)
+POST    /updateCondition            controllers.AddCondition.updateCondition()
+GET     /deleteCondition/:id        controllers.AddCondition.deleteCondition(id:String)
+GET     /listDetailCondition/:id    controllers.AddCondition.listDetailCondition(id:String)
 
 #Register
-GET     /Register                   controllers.Application.formregister()
-POST    /postRegister               controllers.Application.postRegister()
+GET     /Register                   controllers.Access.formregister()
+POST    /postRegister               controllers.Access.postRegister()
 
+#show
 GET     /showProducts               controllers.Show.showPro()
 GET     /showPromotion              controllers.Show.showPromotion()
+GET     /showCondition              controllers.Show.showCondition()
+GET     /showProductSale            controllers.Show.showProductsale()
+GET     /showMode                   controllers.Show.showModeorders()
 
 #User
 GET     /listUser                   controllers.Listuser.listUser()
@@ -59,15 +79,22 @@ GET     /deleteUser/:id             controllers.Listuser.deleteUser(id:String)
 GET     /listDetailUser/:id         controllers.Listuser.listUserdetail(id:String)
 
 #Login/Logout
-GET     /Login                      controllers.Application.Login()
-POST    /postLogin                  controllers.Application.postLogin()
-GET     /Logout                     controllers.Application.Logout()
+GET     /Login                      controllers.Access.Login()
+POST    /postLogin                  controllers.Access.postLogin()
+GET     /Logout                     controllers.Access.Logout()
 
 #chache
-GET     /showProductSale            controllers.Show.showProductsale()
-GET     /addOrder/:id               controllers.Show.addOrder(id:String)
-GET     /removeItem/:id             controllers.Show.removeItem(id:String)
-GET     /checkBill                  controllers.Show.checkBill()
-GET     /saveBill                   controllers.Show.saveBill()
+
+GET     /addOrder/:id               controllers.Orderlist.addOrder(id:String)
+GET     /removeItem/:id             controllers.Orderlist.removeItem(id:String)
+GET     /checkBill                  controllers.Orderlist.checkBill()
+GET     /saveBill                   controllers.Orderlist.saveBill()
+GET     /listOrderuser              controllers.Orderlist.listorderuser()
+GET     /listorder                  controllers.Orderlist.listorder()
+
+
+
+
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

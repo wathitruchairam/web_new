@@ -3,6 +3,14 @@
 
 # --- !Ups
 
+create table tb_Condition (
+  id                        varchar(255) not null,
+  pro                       varchar(255),
+  repair                    varchar(255),
+  rate                      varchar(255),
+  constraint pk_tb_Condition primary key (id))
+;
+
 create table tb_Contact (
   id                        varchar(255) not null,
   name                      varchar(255),
@@ -17,6 +25,13 @@ create table tb_Homeimg (
   id                        varchar(255) not null,
   picture                   varchar(255),
   constraint pk_tb_Homeimg primary key (id))
+;
+
+create table tb_Modeorders (
+  id                        varchar(255) not null,
+  name                      varchar(255),
+  picture                   varchar(255),
+  constraint pk_tb_Modeorders primary key (id))
 ;
 
 create table tb_Orders (
@@ -53,6 +68,13 @@ create table tb_Product (
   constraint pk_tb_Product primary key (id))
 ;
 
+create table tb_Slip (
+  id                        varchar(255) not null,
+  slip_order                varchar(255),
+  picture                   varchar(255),
+  constraint pk_tb_Slip primary key (id))
+;
+
 create table tb_Types (
   id                        varchar(255) not null,
   name                      varchar(255),
@@ -65,6 +87,7 @@ create table tb_User (
   username                  varchar(255),
   password                  varchar(255),
   email                     varchar(255),
+  address                   varchar(255),
   phone                     varchar(255),
   status                    varchar(255),
   constraint pk_tb_User primary key (id))
@@ -85,9 +108,13 @@ create index ix_tb_Product_types_4 on tb_Product (types_id);
 
 SET FOREIGN_KEY_CHECKS=0;
 
+drop table tb_Condition;
+
 drop table tb_Contact;
 
 drop table tb_Homeimg;
+
+drop table tb_Modeorders;
 
 drop table tb_Orders;
 
@@ -96,6 +123,8 @@ drop table tb_OrdersDetsil;
 drop table tb_Promotion;
 
 drop table tb_Product;
+
+drop table tb_Slip;
 
 drop table tb_Types;
 

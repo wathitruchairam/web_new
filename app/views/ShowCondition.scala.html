@@ -1,0 +1,39 @@
+@(conditionList:List[Condition])
+
+
+        <!-- /.panel-heading -->
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    @for(condition <- conditionList) {
+                        <tr>
+                            <th>เงื่อนไขการรับประกันสินค้า</th>
+                        </tr>
+                        <tr>
+                            <td>@condition.getPro</td>
+                        </tr>
+
+
+                        <tr>
+                            <th>เงื่อนไขการซ่อม</th>
+                        </tr>
+
+                        <tr>
+                            <td>@condition.getRepair</td>
+                        </tr>
+
+                        <tr>
+                            <th>อัตราค่าบริการ</th>
+                        </tr>
+
+                        <tr>
+                            <td>@condition.getRate</td>
+                        </tr>
+                    }
+                </thead>
+
+            </table>
+        </div>
+        <!--
+
+

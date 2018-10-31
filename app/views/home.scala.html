@@ -1,5 +1,35 @@
+@(pro:List[Product])
 
-<div class="it-title">
-    <h3><span>สินค้ามาใหม่</span></h3>
-    <a class="viewall" href="/showProducts">ดูสินค้าทั้งหมด</a>
-</div>
+@if(session.get("ustatus")=="admin") {
+    <div class="error-template">
+        <h1>ยินดีต้อนรับ</h1>
+        <h2>@session.get("ustatus")</h2>
+        <div class="error-details">
+        @session.get("uname")
+        </div>
+
+    </div>
+
+}else{
+    <div class="it-title">
+        <h3><span>สินค้ามาใหม่</span></h3>
+        <a class="viewall" href="/showProducts">ดูสินค้าทั้งหมด</a>
+    </div>
+
+    <div class="row">
+    @for(pr <- pro){
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <img src="assets/images/product/@pr.getPicture()" alt="...">
+                <div class="caption">
+                    <h5>@pr.getName @pr.getBrand</h5>
+                    <p>ราคา<strong class="price">@pr.getPrice</strong></p>
+                    <p><a href="/addOrder/@pr.getId" class="btn btn-primary" role="button">ซื้อเลย</a> <a href="#" class="btn btn-default" role="button">รายละเอียด</a></p>
+                </div>
+            </div>
+
+        </div>
+    }
+    </div>
+}
+

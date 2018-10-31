@@ -1,0 +1,43 @@
+@(orderuser:List[OrdersDetail])
+
+
+<div class="panel panel-default">
+<div class="panel-body">
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>ใบสั่งซื้อ</th>
+                    <th>ชื่อสินค้า</th>
+                    <th>รุ่น</th>
+                    <th>ราคา/หน่วย</th>
+                    <th>จำนวน</th>
+                    <th>ราคารวม</th>
+                </tr>
+
+                @for(list<- orderuser){
+                    <tr>
+                        <td>@list.getOrders.getId</td>
+                        <td>@list.getProduct.getName</td>
+                        <td>@list.getProduct.getBrand</td>
+                        <td>@list.getProduct.getPrice</td>
+                        <td>@list.getAmount</td>
+                        <td>@(list.getProduct.getPrice * list.getAmount)</td>
+                    </tr>
+                }
+            </thead>
+
+        </table>
+    </div>
+        <!-- /.table-responsive -->
+</div>
+</div>
+
+<div class="error-template">
+    <h1>วิธีการชำระเงิน</h1>
+    <h2>กรุณาจดใบสั่งซื้อไว้ ใช้สำหรับกรอกในหน้าแจ้งชำระเงิน</h2>
+    <div class="error-details">
+   ขอบคุณครับ
+    </div>
+
+</div>
